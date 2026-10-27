@@ -228,3 +228,26 @@ the documentation page you’re reading is made out of React components
 
 Importing and Exporting Components
 The magic of components lies in their reusability: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files
+
+import Gallery from './Gallery.js';
+
+Writing Markup with JSX
+JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
+
+Keeping a button’s rendering logic and markup together ensures that they stay in sync with each other on every edit.
+Converting HTML to JSX 
+Suppose that you have some (perfectly valid) HTML:
+
+<h1>Hedy Lamarr's Todos</h1>
+<img
+  src="https://react.dev/images/docs/scientists/yXOvdOSs.jpg"
+  alt="Hedy Lamarr"
+  class="photo"
+>
+<ul>
+    <li>Invent new traffic lights
+    <li>Rehearse a movie scene
+    <li>Improve the spectrum technology
+</ul>
+
+<> and </> -> is called fragment 
