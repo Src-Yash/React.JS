@@ -203,3 +203,4 @@ function MyButton({ count, onClick }) {
     </button>
   );
 }
+![alt text](generic_render_tree.png)
