@@ -262,3 +262,9 @@ As text directly inside a JSX tag: <h1>{name}'s To Do List</h1> works, but <{tag
 As attributes immediately following the = sign: src={avatar} will read the avatar variable, but src="{avatar}" will pass the string "{avatar}".
 
 Inline style properties are written in camelCase.
+
+Passing Props to a Component
+React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, and functions
+
+
+Props let you think about parent and child components independently.
