@@ -203,4 +203,28 @@ function MyButton({ count, onClick }) {
     </button>
   );
 }
+
+# Describing the UI
+
 ![alt text](generic_render_tree.png)
+
+# First React Component
+
+Components: UI building blocks 
+On the Web, HTML lets us create rich structured documents with its built-in set of tags like <h1> and <li>
+
+the documentation page you’re reading is made out of React components
+<PageLayout>
+  <NavigationHeader>
+    <SearchBar />
+    <Link to="/docs">Docs</Link>
+  </NavigationHeader>
+  <Sidebar />
+  <PageContent>
+    <TableOfContents />
+    <DocumentationText />
+  </PageContent>
+</PageLayout>
+
+Importing and Exporting Components
+The magic of components lies in their reusability: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files
