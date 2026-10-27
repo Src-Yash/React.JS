@@ -251,3 +251,14 @@ Suppose that you have some (perfectly valid) HTML:
 </ul>
 
 <> and </> -> is called fragment 
+
+why every tag must be closed ->camelCase all most of the things! 
+JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names
+
+Where to use curly braces 
+You can only use curly braces in two ways inside JSX:
+
+As text directly inside a JSX tag: <h1>{name}'s To Do List</h1> works, but <{tag}>Gregorio Y. Zara's To Do List</{tag}> will not.
+As attributes immediately following the = sign: src={avatar} will read the avatar variable, but src="{avatar}" will pass the string "{avatar}".
+
+Inline style properties are written in camelCase.
