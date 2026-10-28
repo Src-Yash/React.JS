@@ -366,3 +366,25 @@ function App() {
 
   return <div>{content}</div>;
 }
+
+Arrow functions implicitly return the expression right after =>, so you didn’t need a return statement:
+
+const listItems = chemists.map(person =>
+  <li>...</li> // Implicit return!
+);
+
+However, you must write return explicitly if your => is followed by a { curly brace!
+
+const listItems = chemists.map(person => { // Curly brace
+  return <li>...</li>;
+});
+Arrow functions containing => { are said to have a “block body”. They let you write more than a single line of code, but you have to write a return statement yourself. If you forget it, nothing gets returned
+
+Keeping list items in order with key 
+Notice that all the sandboxes above show an error in the console:
+
+Console
+Warning: Each child in a list should have a unique “key” prop.
+You need to give each array item a key — a string or a number that uniquely identifies it among other items in that array:
+
+<li key={person.id}>...</li>
