@@ -388,3 +388,15 @@ Warning: Each child in a list should have a unique “key” prop.
 You need to give each array item a key — a string or a number that uniquely identifies it among other items in that array:
 
 <li key={person.id}>...</li>
+
+What do you do when each item needs to render not one, but several DOM nodes?
+
+The short <>...</> Fragment syntax won’t let you pass a key, so you need to either group them into a single <div>, or use the slightly longer and more explicit <Fragment> syntax:
+
+Rules of keys 
+Keys must be unique among siblings. However, it’s okay to use the same keys for JSX nodes in different arrays.
+Keys must not change or that defeats their purpose! Don’t generate them while rendering.
+Note that your components won’t receive key as a prop. It’s only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: <Profile key={id} userId={id} />.
+
+# Keeping a component pure
+
