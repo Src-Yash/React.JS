@@ -408,3 +408,10 @@ Rules for keeping components pure
 
 # Understand your UI as tree
 
+Trees are a relationship model between items. The UI is often represented using tree structures. For example, browsers use tree structures to model HTML (DOM) and CSS (CSSOM). Mobile platforms also use trees to represent their view hierarchy.
+![alt text](preserving_state_dom_tree.webp)
+
+-> Render tree
+
+# Adding interactivity
+ screen update in response to user input. For example, clicking an image gallery switches the active image. In React, data that changes over time is called state
