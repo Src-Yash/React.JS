@@ -415,3 +415,37 @@ Trees are a relationship model between items. The UI is often represented using 
 
 # Adding interactivity
  screen update in response to user input. For example, clicking an image gallery switches the active image. In React, data that changes over time is called state
+
+
+# responding to events 
+
+export default function App() {
+  return (
+    <Toolbar 
+      onPlayMovie={() => alert('Playing!')}
+      onUploadImage={() => alert('Uploading!')} // it will generate alert while we click on this 
+      
+    />
+  );
+}
+
+function Toolbar({ onPlayMovie, onUploadImage }) {
+  return (
+    <div>
+      <Button onClick={onPlayMovie}>
+        Play Movie
+      </Button>
+      <Button onClick={onUploadImage}>
+        Upload Image
+      </Button>
+    </div>
+  );
+}
+
+function Button({ onClick, children }) {
+  return (
+    <button onClick={onClick}>
+      {children}
+    </button>
+  );
+}
