@@ -268,3 +268,101 @@ React components use props to communicate with each other. Every parent componen
 
 
 Props let you think about parent and child components independently.
+
+, props are immutable—a term from computer science meaning “unchangeable”. When a component needs to change its props (for example, in response to a user interaction or new data), it will have to “ask” its parent component to pass it different props—a new object! Its old props will then be cast aside, and eventually the JavaScript engine will reclaim the memory taken by them.
+
+#Conditional Rendering 
+
+Conditional rendering means displaying different UI elements based on a condition.
+
+Just like we use if-else in JavaScript to make decisions, React lets us decide what to display on the screen depending on a condition.
+
+For example:
+- If a user is logged in → show the Dashboard.
+- If a user is not logged in → show the Login button.
+- If data is loading → show a Loading message.
+Let's understand it step by step.
+1. Using if-else
+You can use normal JavaScript if-else statements to decide what a component should return.
+function App() {
+  const isLoggedIn = true;
+
+  if (isLoggedIn) {
+    return <h1>Welcome Back!</h1>;
+  } else {
+    return <h1>Please Login</h1>;
+  }
+}
+
+export default App;
+
+
+Output:
+Welcome Back!
+Because isLoggedIn is true.
+
+If isLoggedIn becomes false, the output will be Please Login.
+
+Remember: With if-else, you generally use separate return statements for the different UI outcomes.
+2. Using the ternary operator ? :
+This is useful when you want to render one of two elements inside JSX.
+
+Syntax:
+condition ? expressionIfTrue : expressionIfFalse
+
+
+Example:
+function App() {
+  const isLoggedIn = false;
+
+  return (
+    <div>
+      {isLoggedIn ? <h1>Welcome!</h1> : <h1>Please Login</h1>}
+    </div>
+  );
+}
+
+
+Output: Please Login
+
+How it works:
+- isLoggedIn is true → render Welcome!
+- isLoggedIn is false → render Please Login
+The curly braces {} allow you to write JavaScript expressions inside JSX.
+3. Using the logical AND operator &&
+Use && when you want to display something only if a condition is true. If the condition is false, nothing is rendered from the expression.
+function App() {
+  const hasMessage = true;
+
+  return (
+    <div>
+      <h1>My App</h1>
+      {hasMessage && <p>You have a new message!</p>}
+    </div>
+  );
+}
+
+
+Output:
+My App
+You have a new message!
+
+
+If hasMessage is false, the paragraph won't appear.
+
+Important interview point: Avoid writing {count && <p>...</p>} when count can be 0, because JavaScript may render the number 0 on the screen. Instead, use {count > 0 && <p>...</p>}.
+4. Using a variable
+You can store the JSX in a variable and then render it.
+function App() {
+  const isAdmin = true;
+
+  let content;
+
+  if (isAdmin) {
+    content = <h1>Admin Dashboard</h1>;
+  } else {
+    content = <h1>User Dashboard</h1>;
+  }
+
+  return <div>{content}</div>;
+}
