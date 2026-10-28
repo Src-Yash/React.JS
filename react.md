@@ -398,5 +398,13 @@ Keys must be unique among siblings. However, it’s okay to use the same keys fo
 Keys must not change or that defeats their purpose! Don’t generate them while rendering.
 Note that your components won’t receive key as a prop. It’s only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: <Profile key={id} userId={id} />.
 
-# Keeping a component pure
+# Keeping a component pure -> a pure component gives the same output for the same inputs and does not change anything outside itself during rendering.
+
+Rules for keeping components pure
+1. Don't change props. Props are read-only.
+2. Don't modify external variables during rendering.
+3. Don't perform side effects during rendering, such as making API calls or modifying the DOM directly.
+4. Keep rendering calculations predictable. The same inputs should produce the same JSX.
+
+# Understand your UI as tree
 
