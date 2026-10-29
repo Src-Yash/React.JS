@@ -520,3 +520,27 @@ Hooks are special functions that let functional components use React features su
 
 -> useState in this u are telling react to remember something
 const[index.setIndex]=useState(0)
+
+
+Render and Commit
+Before your components are displayed on screen, they must be rendered by React![alt text](i_render-and-commit1.png)
+
+TRIGGER 
+import Image from './Image.js';
+import { createRoot } from 'react-dom/client';
+
+const root = createRoot(document.getElementById('root'))
+root.render(<Image />); //INITIAL TRIGGER
+After you trigger a render, React calls your components to figure out what to display on screen. “Rendering” is React calling your components.
+
+On initial render, React will call the root component.
+For subsequent renders, React will call the function component whose state update triggered the render.
+
+Step 3: React commits changes to the DOM 
+After rendering (calling) your components, React will modify the DOM.
+
+For the initial render, React will use the appendChild() DOM API to put all the DOM nodes it has created on screen.
+For re-renders, React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
+
+rowser paint 
+After rendering is done and React updated the DOM, the browser will repaint the screen. Although this process is known as “browser rendering”, we’ll refer to it as “painting” to avoid confusion throughout the docs.
