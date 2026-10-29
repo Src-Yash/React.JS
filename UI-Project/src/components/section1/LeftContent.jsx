@@ -11,4 +11,6 @@ const LeftContent = () => {
   )
 }
 
+
 export default LeftContent
+
