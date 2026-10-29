@@ -424,7 +424,7 @@ export default function App() {
     <Toolbar 
       onPlayMovie={() => alert('Playing!')}
       onUploadImage={() => alert('Uploading!')} // it will generate alert while we click on this 
-      
+
     />
   );
 }
@@ -449,3 +449,64 @@ function Button({ onClick, children }) {
     </button>
   );
 }
+
+State A component's memory ->
+
+When a regular variable isn’t enough 
+Here’s a component that renders a sculpture image. Clicking the “Next” button should show the next sculpture by changing the index to 1, then 2, and so on. However, this won’t work (you can try it!):
+
+import { sculptureList } from './data.js';
+
+export default function Gallery() {
+  let index = 0;
+
+  function handleClick() {
+    index = index + 1;
+  }
+
+  let sculpture = sculptureList[index];
+  return (
+    <>
+      <button onClick={handleClick}>
+        Next
+      </button>
+      <h2>
+        <i>{sculpture.name} </i>
+        by {sculpture.artist}
+      </h2>
+      <h3>
+        ({index + 1} of {sculptureList.length})
+      </h3>
+      <img
+        src={sculpture.url}
+        alt={sculpture.alt}
+      />
+      <p>
+        {sculpture.description}
+      </p>
+    </>
+  );
+}
+
+Show more
+The handleClick event handler is updating a local variable, index. But two things prevent that change from being visible:
+
+Local variables don’t persist between renders. When React renders this component a second time, it renders it from scratch—it doesn’t consider any changes to the local variables.
+Changes to local variables won’t trigger renders. React doesn’t realize it needs to render the component again with the new data.
+
+To update a component with new data, two things need to happen:
+
+Retain the data between renders.
+Trigger React to render the component with new data (re-rendering).
+The useState Hook provides those two things:
+
+A state variable to retain the data between renders.
+A state setter function to update the variable and trigger React to render the component again.
+
+Adding a state variable 
+import {useState} from 'react'
+instead of let index=0;
+we will use const [index,setIndex] = useState(0);
+
+[and] it is called array destruction 
+
