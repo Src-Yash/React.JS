@@ -885,3 +885,7 @@ State can hold any kind of JavaScript value, including objects. But you shouldnâ
 
 Treat state as read-only 
 In other words, you should treat any JavaScript object that you put into state as read-only.
+
+Managing State
+Intermediate
+As your application grows, it helps to be more intentional about how your state is organized and how the data flows between your components. Redundant or duplicate state is a common source of bugs. In this chapter, youâ€™ll learn how to structure your state well, how to keep your state update logic maintainable, and how to share state between distant components.
