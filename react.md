@@ -900,3 +900,38 @@ When you type something into the form, the “Submit” button becomes enabled.
 When you press “Submit”, both the form and the button become disabled, and a spinner appears.
 If the network request succeeds, the form gets hidden, and the “Thank you” message appears.
 If the network request fails, an error message appears, and the form becomes enabled again
+
+
+Thinking about UI declaratively 
+You’ve seen how to implement a form imperatively above. To better understand how to think in React, you’ll walk through reimplementing this UI in React below:
+
+Identify your component’s different visual states
+Determine what triggers those state changes
+Represent the state in memory using useState
+Remove any non-essential state variables
+Connect the event handlers to set the state
+
+Step 1: Identify your component’s different visual states 
+
+export default function Form({
+  status = 'empty'
+}) {
+  if (status === 'success') {
+    return <h1>That's right!</h1>
+  }
+  return (
+    <>
+      <h2>City quiz</h2>
+      <p>
+        In which city is there a billboard that turns air into drinkable water?
+      </p>
+      <form>
+        <textarea />
+        <br />
+        <button>
+          Submit
+        </button>
+      </form>
+    </>
+  )
+}
