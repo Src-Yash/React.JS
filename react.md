@@ -935,3 +935,9 @@ export default function Form({
     </>
   )
 }
+
+Choosing the State Structure
+Structuring state well can make a difference between a component that is pleasant to modify and debug, and one that is a constant source of bugs. Here are some tips you should consider when structuring state.
+
+Principles for structuring state 
+When you write a component that holds some state, you’ll have to make choices about how many state variables to use and what the shape of their data should be. While it’s possible to write correct programs even with a suboptimal state structure, there are a few principles that can guide you to make better choices:
